@@ -1,0 +1,1680 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  width: auto;
+}
+.main {
+  background-color: white !important;
+  padding: 0px 40px;
+}
+.navbar {
+  width: auto;
+  height: auto;
+  padding: 20px 50px;
+  background-color: white;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-top: 0px;
+}
+.navbar_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar_col2 ul {
+  display: flex;
+  align-items: center;
+}
+.link {
+  margin: 20px;
+  font-size: 20px;
+  font-family: "Mulish";
+  color: #000000;
+}
+.link:hover {
+  color: #0f9203;
+}
+.btn:hover {
+  background-color: #0f9203;
+}
+.btn {
+  font-size: 15px;
+  font-family: "Mulish";
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1f56a1;
+}
+.icon {
+  font-size: 25px !important;
+  color: black;
+}
+.icon :hover {
+  color: rgb(255, 0, 0);
+}
+.navbar_logo img {
+  width: 100px;
+  height: auto;
+}
+.navbar_col {
+  display: none;
+  align-items: center;
+}
+
+.kategory {
+  width: 100%;
+  height: 70vh;
+  margin: 50px 0px 100px 0px;
+}
+.kategory_row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kategory_col {
+  width: 50%;
+  padding: 0px 40px;
+  height: 100%;
+  background-image: url("../public/main3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.kategory_col2 {
+  width: 50%;
+  padding: 0px 40px;
+  height: 100%;
+  background-image: url("../public/main2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.kategory_col p {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: white;
+  font-size: 40px;
+  font-family: "Mulish";
+}
+.kategory_col2 p {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 40px;
+  font-family: "Mulish";
+}
+
+.things {
+  width: auto;
+  display: flex;
+  margin-top: 100px;
+}
+.things_adv {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+}
+.things_left {
+  width: 70%;
+  margin-right: 10px;
+}
+.all {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: "Mulish";
+}
+.things_right {
+  width: 30%;
+  flex-wrap: nowrap;
+}
+.things_row {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to a new row */
+  justify-content: center; /* Adds spacing between items */
+  gap: 15px; /* Adjust spacing between cards */
+}
+.things_card {
+  display: flex;
+  justify-content: center;
+}
+.things_card h1 {
+  display: flex;
+  justify-content: center;
+}
+.things_col {
+  width: calc(33.33% - 10px); /* Adjust for 3 items per row */
+}
+.things_card {
+  box-shadow: rgba(99, 99, 99, 0.877) 0px 2px 8px 0px;
+  display: block;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+.things_card:hover {
+  background-color: #dddbdb;
+}
+.things_col_img {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.things_card h1 {
+  font-family: "Mulish";
+  font-weight: 400;
+  font-size: 18.22px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.things_right h1 {
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 25.33px;
+  color: #000000;
+  padding: 10px 20px;
+  background-color: #fffffff2;
+  border-radius: 8px;
+  margin: 5px 5px 20px 5px;
+}
+
+.right_col {
+  margin: 5px;
+  padding: 20px 15px;
+  background-color: #fffffff2;
+  border-radius: 8px;
+}
+.right_col_in {
+  display: flex;
+  margin: 15px 0px;
+}
+.right_col_text {
+  margin-left: 15px;
+}
+.right_col_text span {
+  font-family: "Mulish";
+  font-weight: 600;
+  font-size: 20.28px;
+  color: #84db06;
+}
+.right_col_text p {
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 16.8px;
+  color: #000000;
+}
+
+.right_col2 {
+  width: auto;
+  flex-wrap: wrap;
+  margin: 20px 5px;
+  padding: 25px 20px;
+  background-color: #fffffff2;
+  border-radius: 8px;
+}
+.right_text h2 {
+  font-family: Mulish;
+  font-weight: 700;
+  font-size: 23.28px;
+  color: #84db06;
+  margin: 18px 0px 30px 0px;
+}
+.right_text p {
+  font-family: "Mulish";
+  font-weight: 400;
+  font-size: 18.8px;
+  color: #000000;
+}
+.right_text button {
+  width: 100%;
+  padding: 15px 0px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #84db06;
+  border: none;
+}
+
+.market {
+  width: auto;
+  height: auto;
+  margin-top: 50px;
+}
+.market-title {
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  font-family: "Mulish";
+  margin: 20px 0px 15px 0px;
+}
+.market_row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.market_col {
+  width: 23%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 10px;
+}
+.market_img img {
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.market_text {
+  display: flex;
+  width: auto;
+  padding: 10px;
+  justify-content: space-between;
+}
+.icon2 {
+  font-size: 15px !important;
+}
+.market_text1 {
+  display: flex;
+  flex-direction: column;
+}
+.market_text1 h1 {
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 22px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+.market_text1 h1:hover {
+  color: rgb(10, 177, 10);
+}
+.market_text1 p {
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 13px;
+}
+.market_text1 span {
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 16px;
+  color: #65696f;
+  margin-bottom: 15px;
+}
+.information {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 12.28px;
+  color: #000000;
+  padding: 10px;
+  background-color: #1f56a1;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.information:hover {
+  background-color: #0f9203;
+}
+.text {
+  font-family: "Mulish";
+  font-weight: 600;
+  font-size: 40.56px;
+  color: #000000;
+  margin: 100px 0px 50px 0px;
+  display: flex;
+  justify-content: center;
+}
+.about {
+  margin-top: 100px;
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.568);
+  display: flex;
+  border-radius: 20px 10px 0px 0px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.about_text {
+  width: 100%;
+  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.about_text p {
+  font-family: "Mulish";
+  font-weight: 400;
+  font-size: 15.28px;
+  color: white;
+  margin-right: 10px;
+}
+.add {
+  width: auto;
+  padding: 40px;
+  max-width: 1280px;
+  margin: auto;
+}
+.add_top {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.add_top p {
+  font-size: 20px;
+}
+.add_top a {
+  font-size: 20px;
+  font-family: "Mulish";
+}
+.add_bottom {
+  width: 100%;
+}
+.add_bottom_row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.add_bottom_row2 {
+  display: flex;
+  width: 100%;
+}
+.add_bottom_col {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px 10px;
+}
+.add_bottom_col span {
+  font-size: 20px;
+  font-family: "Mulish";
+  margin: 30px 0px 10px 0px;
+  color: black;
+}
+.add_bottom_col input {
+  width: 100%;
+  border: 1px solid #a3a3a3;
+  padding: 20px 12px;
+  height: 2vw;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.add_bottom input:hover {
+  border-color: #a3a3a3 !important;
+}
+.add_text {
+  width: 100% !important;
+}
+.textarea {
+  width: 100% !important;
+  border-color: #a3a3a3 !important;
+}
+
+.addcom_col input {
+  width: auto;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #919191;
+}
+.com_add {
+  width: auto;
+}
+.addcom_col h4 {
+  font-size: 20px;
+  color: #000000c2;
+  font-family: "Mulish";
+  margin: 10px 0px 10px 0px;
+}
+.bts button {
+  padding: 10px;
+  font-family: "Mulish";
+  background-color: #64ac00;
+  font-size: 12px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-end !important;
+  margin-top: 10px;
+}
+.add_img {
+  width: 100% !important;
+}
+.img_box {
+  width: 100% !important;
+  display: flex;
+}
+
+.bts {
+  width: 100%;
+}
+
+.number {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #a3a3a3;
+}
+.search {
+  width: 10vw;
+  height: 3vw !important;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 50px 30px;
+  background-color: white;
+  margin-top: 20px;
+}
+.add_bottom_col select {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #a3a3a3;
+}
+.custom-file-upload {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.custom-file-upload input {
+  display: none; /* Fayl yuklash tugmasini yashirish */
+}
+.icon {
+  margin: 0px 5px;
+  color: #65696f;
+}
+.icons {
+  margin: 0px 20px 0px 10px;
+}
+
+.link2 {
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #0f9203;
+  color: white;
+  border: none;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+}
+.link2:hover {
+  color: #007bff;
+}
+
+.login_box {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px 20px 20px;
+  background-color: #f3f3f3;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.login_log {
+  width: 100%;
+  height: 100% !important;
+}
+.login_log2 {
+  height: 100% !important;
+}
+.log_box {
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.log_box2 {
+  margin-top: 30px !important;
+}
+.login_form {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  padding: 20px;
+  border-radius: 10x;
+}
+.login_form h1 {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 35px;
+  margin-bottom: 30px !important;
+  color: #555555;
+  text-transform: capitalize;
+}
+.ant-form-item-required {
+  font-family: "Montserrat" !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  color: #444444;
+}
+.ant-form-item-required::before {
+  display: none !important;
+}
+.ant-input {
+  padding: 10px !important ;
+}
+
+.login_link {
+  font-family: "Montserrat";
+  font-size: 15px;
+  color: #000000;
+  margin-top: 20px;
+}
+.login_link:hover {
+  color: #007bff;
+}
+.login_btn {
+  padding: 20px !important;
+  color: white !important;
+  background-color: #007bff;
+  margin-top: 20px !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 15px !important;
+  font-family: "Montserrat";
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+.login_btn:hover {
+  color: #333 !important;
+}
+
+.label .antd-form-item-required {
+  font-size: 20px !important;
+  font-family: "Mulish" !important;
+}
+.page {
+  padding: 0px 40px 40px 40px;
+  width: auto;
+  height: auto;
+  background-color: #f8f8f8;
+}
+
+.upload-box {
+  width: 300px;
+  /* height: 300px; */
+  overflow: hidden;
+  position: relative;
+}
+.upload-box input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+}
+.input_file {
+  width: 90%;
+  height: 90%;
+  transition: 0.3s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 5px solid #65696f !important;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px !important;
+  color: #65696f;
+}
+.upload-box:hover .input_file {
+  color: #1f56a1;
+  border-color: #1f56a1 !important;
+}
+
+.box {
+  min-width: 500px;
+  height: 20vh;
+  padding: 10px;
+  overflow: hidden;
+  overflow-x: auto;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.box p {
+  font-size: 15px !important;
+  font-family: "Mulish" !important;
+}
+.box img {
+  height: 100%;
+  width: auto;
+  border-radius: 3px 0px;
+  margin: 0px 10px;
+}
+.input_file.error_image {
+  border-color: #e53e3e;
+}
+
+.slick-arrow {
+  color: black !important;
+  font-size: 50px !important;
+}
+
+.info {
+  width: auto;
+  background-color: #f7f7f7;
+  height: auto;
+  padding: 0px 50px 50px 50px;
+}
+.info_rows {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+}
+.info_ri {
+  width: 70%;
+  padding: 40px;
+  flex-wrap: wrap;
+  background-color: white;
+}
+.info_left {
+  margin-left: 40px;
+}
+.info_ri h1 {
+  font-size: 35px;
+  margin-bottom: 30px;
+  font-family: "Mulish";
+  color: #000000;
+}
+.info_ri img {
+  width: 400px;
+  height: 300px;
+}
+.info_row {
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+}
+.info_col p {
+  font-size: 20px;
+  font-family: "Mulish";
+  margin: 10px 30px 10px 10px;
+}
+.info_col2 p {
+  font-size: 20px;
+  font-family: "Mulish";
+  margin: 10px 30px 10px 10px;
+}
+.info_text h2 {
+  font-size: 30px;
+  font-family: "Mulish";
+  margin-top: 20px;
+}
+.info_text p {
+  margin-top: 30px;
+  padding: 0px 150px 0px 0px;
+  font-size: 20px;
+  font-family: "Mulish";
+}
+
+.market_text button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Kichik tugma qilish */
+  height: 32px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+  margin-left: 20px;
+  font-size: 20px !important;
+}
+
+.heart-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.com {
+  padding: 20px;
+}
+.com_all {
+  width: auto;
+  background-color: white;
+  margin-top: 100px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  overflow-y: auto; /* This enables vertical scrolling */
+  border-radius: 8px;
+}
+.com_all h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-family: "Mulish";
+  color: #6ed111de;
+}
+.com_col {
+  margin: 15px 0px 15px 0px;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border: 1.5px solid #69cb0e8f;
+  border-radius: 10px;
+}
+.com_col h1 {
+  font-size: 15px;
+  font-family: "Mulish";
+  margin-top: 20px;
+  color: #000000de;
+}
+.com_col h2 {
+  font-size: 20px;
+  color: #6ed111de;
+  font-family: "Mulish";
+}
+.com_col p {
+  font-family: "Mulish";
+  margin-top: 10px;
+  font-size: 15px;
+}
+.com_col span {
+  font-size: 15px;
+  color: #919191;
+  margin-top: 15px;
+}
+.com_col_text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.rating-stars {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  color: gold !important;
+  font-size: 25px;
+}
+
+.empty-star {
+  color: #ccc;
+  font-size: 18px;
+}
+
+.rating-number {
+  margin-left: 5px;
+  color: #666;
+}
+
+.heart {
+  color: #000000;
+}
+
+.news {
+  padding: 40px;
+  width: auto;
+  height: auto;
+}
+.news h1 {
+  font-family: "Mulish";
+  font-size: 40px;
+  color: #62a702;
+  margin-bottom: 40px;
+}
+.news_row {
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.news_col {
+  width: auto;
+  margin-top: 20px;
+  display: flex;
+  padding: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+.new h1 span {
+  color: #62a702;
+}
+.news_col_img {
+  width: 40%;
+}
+.news_col_img img {
+  width: 100%;
+  border-radius: 10px;
+}
+.news_col_text {
+  width: 60%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.news_col_text h2 {
+  font-family: "Mulish";
+  font-size: 40px;
+}
+.news_col_text p {
+  font-family: "Mulish";
+  font-size: 15px;
+  margin-top: 15px;
+  flex-grow: 1;
+}
+.news_col_text span {
+  font-family: "Mulish";
+  font-size: 13px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.add_com_btn {
+  width: 100%;
+  background-color: #e6e8ed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.004em;
+  line-height: 20px;
+  border: none;
+  cursor: pointer;
+  color: #1f2026;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.add_com_btn:hover {
+  background-color: #d0d3d9;
+}
+.ant-modal-content {
+  padding: 0px !important;
+}
+.ant-modal-header {
+  background-color: #6fbd02 !important;
+  color: white !important;
+  padding-right: 50px;
+  padding: 15px 20px !important;
+  display: flex;
+  align-items: center;
+}
+.ant-modal-title {
+  color: white !important;
+  font-size: 18px !important;
+}
+.ant-modal-close-x span {
+  color: white !important;
+  font-size: 20px;
+}
+.ant-modal-body,
+.ant-modal-footer {
+  padding: 20px !important;
+}
+.ant-modal-footer .ant-btn-primary {
+  background-color: #6fbd02 !important;
+}
+.ant-modal-footer .ant-btn-primary:hover {
+  background-color: #5b9a03 !important;
+}
+.com_form_item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.com_form_item label {
+  font-weight: 600;
+  color: #1f2026;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.com_form_item textarea {
+  width: 100%;
+  border-radius: 12px;
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  border: 1px solid #36374033;
+  outline: none;
+  color: #1f2026;
+  padding: 10px;
+}
+.add_stars {
+  display: flex;
+  align-items: center;
+}
+.add_star {
+  width: 38px;
+  height: 30px;
+  position: relative;
+}
+
+.star_icon,
+.active_star_icon {
+  font-size: 30px;
+  transition: 0.1s;
+  color: #1f2026;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: pointer;
+}
+.active_star_icon {
+  opacity: 0;
+  transition: 0.1s;
+  color: gold;
+}
+.star_icon {
+  color: #36374033;
+}
+.active_star .star_icon {
+  opacity: 0;
+}
+.active_star .active_star_icon {
+  opacity: 1;
+}
+.market_card {
+  position: relative;
+}
+
+.card-panel {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card-panel-title {
+  font-family: "Mulish";
+  font-size: 40px;
+  color: #000000c4;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.card-panel-title span {
+  color: red;
+  margin-right: 5px;
+}
+.card-panel-title p {
+  margin-left: 10px;
+  width: 40px !important;
+  color: red;
+}
+.card_row {
+  display: flex;
+  width: auto;
+  align-items: center;
+}
+.card_img {
+  width: 60%;
+  background-color: rgb(255, 187, 187);
+  background-position: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  height: 100vh !important;
+  margin: 0px 0px 0px 20px;
+}
+.card_cards {
+  width: 40%;
+  height: 100vh !important;
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 50px;
+}
+
+.favorites {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.favorites-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+.favorite-item {
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 30px;
+  position: relative;
+}
+.favorite-item h1 {
+  font-family: "Mulish";
+  font-size: 22px;
+  color: rgb(148, 73, 73);
+}
+.favorite-item p {
+  font-family: "Mulish";
+  font-size: 30px;
+  margin: 10px 0px 20px 0px;
+  color: #007bff;
+}
+.favorite-item span {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 15px;
+  font-family: "Mulish";
+  font-size: 12px;
+  position: absolute;
+  top: 0px;
+  right: 15px;
+}
+
+.active-favorite svg {
+  color: red;
+  fill: red;
+}
+
+.remove-favorite {
+  width: 100%;
+  display: flex;
+  border-radius: 50px;
+  justify-content: flex-end;
+  padding: 10px;
+  border: none;
+  color: red;
+  background-color: transparent;
+}
+.active_like {
+  color: red;
+}
+.chat {
+  width: auto;
+  height: 100vh;
+  padding: 20px;
+  max-width: 1280px;
+  margin: auto;
+}
+.chats {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chats input {
+  width: 90%;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.chats button {
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 50px;
+  background-color: #5b9a03;
+  border: none;
+  margin-left: 10px;
+}
+
+.message {
+  height: 85vh;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: rgb(224, 224, 224);
+  border-radius: 10px;
+}
+
+.chat_row {
+  width: 100%;
+  padding: 20px;
+}
+.chat_col {
+  max-width: 50%;
+  height: auto;
+  /* margin: 10px; */
+}
+.chat_col-item {
+  padding: 10px;
+  border: none;
+  border-radius: 15px 15px 15px 0px;
+  background-color: white;
+  margin-bottom: 10px;
+  position: relative;
+}
+.chat_col p {
+  font-size: 20px;
+  font-family: "Mulish";
+  margin: 10px 0px;
+  color: #1f2026;
+}
+.chat_col p span {
+  font-size: 20px;
+  font-family: "Mulish";
+}
+.chat_col_text {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-style: italic;
+}
+.chat_col_text span {
+  font-size: 10px;
+}
+.chat_box {
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+}
+.chat_box_text {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #f3f3f3c7;
+  text-align: center;
+  justify-content: center;
+}
+.chat_icon p {
+  font-size: 20px;
+  margin: 0px 10px 20px 10px;
+}
+.chat_icon {
+  display: flex;
+  justify-content: center;
+}
+.chat_box_text button {
+  width: 100%;
+  padding: 10px 30px;
+  background-color: #007bff;
+  border-radius: 10px;
+  border: none;
+  font-family: "Mulish";
+  color: white;
+  font-size: 15px;
+}
+.p {
+  font-size: 15px;
+  color: #000000;
+  font-weight: 700;
+}
+.advertise {
+  width: 30%;
+  margin-left: 20px;
+}
+
+.page {
+  width: auto;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: white;
+}
+.page_row {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.page_col {
+  width: 24%;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  margin: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.page_col img {
+  width: 100%;
+  height: 40vh;
+  margin-bottom: 15px;
+}
+.page_col h1 {
+  font-family: "Mulish";
+  color: #62a702;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+
+.contentStyle {
+  margin: 0px;
+  height: 500px;
+  color: #fff;
+  line-height: 300px;
+  text-align: center;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024) {
+  .main {
+    padding: 0px;
+  }
+  .navbar {
+    width: auto;
+    height: auto;
+    background-color: white;
+  }
+  .link {
+    font-size: 15px;
+    margin: 0px 10px;
+  }
+  .things {
+    padding: 10px;
+  }
+  .things_col {
+    width: 48%;
+  }
+  .things_right h1 {
+    font-size: 18px;
+  }
+  .right_col {
+    padding: 10px;
+  }
+  .right_col_text span {
+    font-size: 16px;
+  }
+  .right_col_text p {
+    font-size: 12px;
+  }
+  .right_col_in image {
+    width: 40px !important;
+    height: 20px !important;
+  }
+  .right_text h2 {
+    font-size: 18px;
+  }
+  .right_text p {
+    font-size: 14px;
+  }
+  .right_text button {
+    padding: 8px 0px;
+  }
+  .market {
+    padding: 20px;
+  }
+  .market_col {
+    width: 30%;
+  }
+  .login_box {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0px;
+  }
+  .login_log2 {
+    height: 40vh !important;
+  }
+  .login_form {
+    margin-top: 100px;
+    width: 50%;
+    padding: 15px;
+  }
+  .add {
+    padding: 60px;
+  }
+  .add_bottom_col input {
+    padding: 23px 16px;
+  }
+  .info {
+    height: 100vh;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+  .info_rows {
+    width: 100%;
+    margin-top: 60px;
+  }
+  .info_ri {
+    width: 100%;
+  }
+  .news {
+    width: 100vh;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+  .news_col_img img {
+    height: 30vh !important;
+  }
+  .card_cards {
+    width: auto;
+  }
+  .card_img {
+    display: none;
+  }
+  .advertise {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  .navbar_row ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn {
+    background-color: transparent;
+    padding: 0px;
+    color: black;
+    font-size: 30px !important;
+  }
+  .link {
+    margin: 10px;
+    font-size: 15px;
+  }
+  .things_left {
+    width: 100% !important;
+  }
+  .things_right {
+    display: none;
+  }
+  .kat {
+    display: none;
+  }
+  .things_col {
+    width: calc(50% - 10px);
+  }
+  .things_col h1 {
+    font-size: 15px !important;
+    margin: 0px;
+  }
+  .things_card {
+    padding: 10px;
+  }
+  .things_row {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .market-title {
+    font-size: 20px;
+  }
+  .all {
+    font-size: 20px;
+  }
+  .market {
+    padding: 20px;
+  }
+  .market_row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .market_col {
+    width: 100% !important;
+    padding: 15px;
+    margin: 15px 7px 15px 7px;
+  }
+  .market_text1 h1 {
+    font-size: 18px;
+  }
+  .market_text1 p {
+    font-size: 15px;
+  }
+  .about_text p {
+    font-size: 10px;
+  }
+  .favorites button {
+    width: 20px;
+  }
+  .login_box {
+    padding: 0px 20px;
+  }
+  .login_form {
+    padding: 10px;
+    width: 100%;
+  }
+  .add_bottom_col input {
+    width: 100%;
+  }
+  .add {
+    padding: 40px 20px;
+    margin-bottom: 50px;
+  }
+  .add_bottom_col {
+    width: 100%;
+  }
+  .info {
+    padding: 0px;
+  }
+  .info_rows {
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .info_ri {
+    height: 75vh;
+    width: auto;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 100px;
+  }
+  .info_ri img {
+    width: 100%;
+    height: 30vh !important;
+  }
+  .info_ri h1 {
+    font-size: 25px;
+  }
+  .info_col p {
+    font-size: 15px;
+  }
+  .info_col2 p {
+    font-size: 15px;
+  }
+  .info_text h2 {
+    font-size: 20px;
+  }
+  .info_text p {
+    font-size: 17px;
+  }
+  .com_col h1 {
+    font-size: 15px;
+  }
+  .com_all h1 {
+    font-size: 20px;
+  }
+  .com_col_text1 h2 {
+    font-size: 15px;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+  .kategory {
+    margin-bottom: 20px;
+  }
+  .card-panel {
+    padding: 20px;
+  }
+  .card-panel-title {
+    font-size: 30px;
+  }
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+  .favorite-item {
+    margin: 30px 0px 30px 0px;
+  }
+  .news {
+    width: auto;
+    padding: 20px;
+  }
+  .news_row {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    padding: 10px;
+    gap: 10px;
+  }
+  .news_col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .news_col_img {
+    width: 100%;
+  }
+  .news_col_text {
+    width: auto;
+  }
+  .news_col_text span {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .market_img img {
+    height: 320px !important;
+  }
+  .kategory_col {
+    display: none;
+  }
+  .kategory_col2 {
+    width: 100%;
+  }
+  .kategory {
+    height: 50vh;
+  }
+  .kategory_col2 p {
+    font-size: 30px;
+  }
+  .chat_col {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .advertise {
+    display: none;
+  }
+  .page_row {
+    display: flex;
+    flex-direction: column;
+  }
+  .page_col {
+    width: 100%;
+  }
+  .navbar_col2 {
+    display: none;
+  }
+  .navbar_col {
+    display: flex;
+    align-items: center;
+  }
+  .link {
+    font-size: 20px !important;
+    margin: 20px 5px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #555555;
+    display: flex;
+    justify-content: center;
+  }
+  .icon {
+    font-size: 15px !important;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #555555;
+    display: flex;
+    justify-content: center;
+  }
+  .img_box {
+    display: flex;
+    flex-direction: column;
+  }
+  .upload-box {
+    width: 200px;
+    height: 200px;
+  }
+  .box {
+    width: 300px;
+    height: 10vh;
+  }
+  .btn {
+    font-size: 25px !important;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #555555;
+    display: flex;
+    justify-content: center;
+  }
+  .link2 {
+    padding: 10px !important;
+    font-size: 8px !important;
+  }
+  .card_img {
+    display: none;
+  }
+  .card_cards {
+    width: 100%;
+    padding: 10px;
+  }
+  .contentStyle {
+    margin: 0px;
+    height: 300px;
+    color: #fff;
+    line-height: 300px;
+    text-align: center;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(256, 256, 256, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
