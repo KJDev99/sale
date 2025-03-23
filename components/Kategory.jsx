@@ -1,17 +1,46 @@
 "use client";
 import Search from "antd/es/input/Search";
-import React, { useRef, useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
 export default function Kategory() {
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(
+        "https://mirzohidjon.pythonanywhere.com/blog/banners/"
+      );
+      setData(res.data);
+      console.log("API banner:", res.data);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="kategory">
-      <div className="kategory_row">
-        <div className="kategory_col">
-          <p>Квартира мечты:удобство, комфорт и выгодная цена</p>
+      {data?.[0] ? (
+        <div
+          className="kategory_row"
+          style={{
+            backgroundImage: `url(https://mirzohidjon.pythonanywhere.com${data[0].image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "400px",
+            borderRadius: "12px",
+          }}
+        >
+          <p>{data[0]?.alt_text}</p>
         </div>
-        <div className="kategory_col2">
-          <p>Надежный автомобиль с пробегом – идеальный выбор для вас!</p>
-        </div>
-      </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

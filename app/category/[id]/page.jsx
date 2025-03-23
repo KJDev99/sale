@@ -4,18 +4,17 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { api } from "../../Host/host";
-import Market from "../../../components/Market";
 import Navbar from "../../../components/Navbar";
-import Link from "next/link";
 import Loader from "../../../components/Loader";
+import { FaMapMarkerAlt, FaTag, FaUser } from "react-icons/fa";
 
 export default function CategoryPage() {
   const { id: category } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Category ID:", category); // Tekshirish uchun
+    console.log("Category ID:", category);
     if (category) {
       getData();
     }
@@ -38,19 +37,45 @@ export default function CategoryPage() {
     return <Loader />;
   }
 
+  if (!data) {
+    return <p>No data available.</p>;
+  }
+
   return (
     <div className="page">
       <Navbar />
-      <div className="page_row">
-        {loading ? (
-          <p>Loading...</p>
-        ) : data ? ( // data null yoki undefined emasligini tekshiramiz
-          <div className="page_col">
-            <img src={data.image} alt={data.name} />
-            <h1>{data.name}</h1>
-          </div>
+      <div
+        className="category-header"
+        style={{ backgroundImage: `url(${data.image})` }}
+      >
+        {data.name}
+      </div>
+      <div className="announcements">
+        {data.announcements && data.announcements.length > 0 ? (
+          data.announcements.map((announcement) => (
+            <div className="announcement-card" key={announcement.id}>
+              <img
+                src={announcement.images[0]?.image}
+                alt={announcement.title}
+              />
+              <h2>{announcement.title}</h2>
+              <p>{announcement.description}</p>
+              <div className="announcement-details">
+                <p>
+                  <FaTag /> <strong>Price:</strong> ${announcement.price}
+                </p>
+                <p>
+                  <FaMapMarkerAlt /> <strong>Location:</strong>{" "}
+                  {announcement.location}
+                </p>
+                <p>
+                  <FaUser /> <strong>User:</strong> {announcement.user}
+                </p>
+              </div>
+            </div>
+          ))
         ) : (
-          <p>No data available.</p>
+          <p>No announcements available.</p>
         )}
       </div>
     </div>

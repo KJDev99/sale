@@ -7,10 +7,13 @@ import TextArea from "antd/es/input/TextArea";
 import { message } from "antd";
 import axios from "axios";
 import { api } from "../Host/host";
+import { toast, ToastContainer } from "react-toastify";
+import { MdClose, MdOutlineCurrencyRuble } from "react-icons/md";
+import { FaRubleSign } from "react-icons/fa";
 
 export default function Addpage() {
   const [categories, setCategories] = useState([]);
-  const [images, setImages] = useState([]); // Store multiple images
+  const [images, setImages] = useState([]);
   const [errorImage, setErrorImage] = useState(false);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -18,8 +21,16 @@ export default function Addpage() {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [priority, setPriority] = useState("");
+  const [plans, setPlans] = useState([]);
   const [plan, setPlan] = useState("");
   const router = useRouter();
+  const [modal, setModal] = useState("");
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [addAdsId, setAddAdsId] = useState("");
+
+  const handleSelect = (id) => {
+    setSelectedPlan(id);
+  };
 
   useEffect(() => {
     getCategory();
@@ -28,23 +39,27 @@ export default function Addpage() {
   const sendData = async () => {
     if (images.length === 0) {
       setErrorImage(true);
-      message.error("Rasm tanlamadingiz");
+      toast.error("Rasm tanlamadingiz");
       return;
     }
 
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("title", title);
     formData.append("price", price);
     formData.append("description", description);
     formData.append("category", category);
     formData.append("location", location);
     formData.append("priority", priority || 1);
-    formData.append("plan", plan);
 
-    images.forEach((img) => formData.append("images", img.file)); // Append all images
+    images.forEach((img) => formData.append("images", img.file));
 
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      toast.error("Malumot saqlanmadi iltimos hisobingizga kiring");
+      return;
+    }
     try {
-      const token = localStorage.getItem("token");
       const response = await axios.post(
         `${api}/blog/announcements/`,
         formData,
@@ -55,13 +70,14 @@ export default function Addpage() {
           },
         }
       );
-
       console.log(response);
-      message.success("Announcement created successfully");
-      router.push("/");
+
+      toast.success("Announcement created successfully");
+
+      setModal(response.data.id);
     } catch (err) {
       console.log("Error:", err);
-      message.error("Failed to create announcement");
+      toast.error("Malumot saqlanmadi iltimos hisobingizga kiring");
     }
   };
 
@@ -81,9 +97,54 @@ export default function Addpage() {
         file,
         url: URL.createObjectURL(file),
       }));
-      setImages((prev) => [...prev, ...newImages]); // Append new images
+      setImages((prev) => [...prev, ...newImages]);
     }
   };
+  const fetchPlans = async () => {
+    try {
+      const response = await axios.get(`${api}/blog/plans/`);
+      setPlans(response.data);
+      console.log("Plans:", response.data);
+    } catch (err) {
+      console.error("Plans API Error:", err);
+    }
+  };
+
+  const Plane = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Malumot saqlanmadi iltimos hisobingizga kiring");
+      return;
+    }
+    try {
+      const res = await axios.post(
+        "https://mirzohidjon.pythonanywhere.com/blog/payments/create/",
+        {
+          announcement: modal,
+          plan: selectedPlan,
+        },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(res.data);
+      localStorage.setItem("paymentID", res.data.payment_id);
+      if (selectedPlan == 2) {
+        router.push("/");
+      } else {
+        window.location.href = res.data.confirmation_url;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPlans();
+  }, []);
 
   return (
     <div className="add max-w-6xl">
@@ -145,21 +206,30 @@ export default function Addpage() {
           </div>
 
           <div className="add_bottom_row2">
-            <div className="add_bottom_col">
+            {/* <div className="add_bottom_col">
               <span>План</span>
               <select value={plan} onChange={(e) => setPlan(e.target.value)}>
-                <option>Вершина</option>
-                <option>Середина</option>
-                <option>Стандартный</option>
-              </select>
-            </div>
+                <option key={0} value={0}>
+                  Выберите план
+                </option>
 
-            <div className="add_bottom_col">
+                {plans.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.name}
+                  </option>
+                ))}
+              </select>
+            </div> */}
+
+            <div className="add_bottom_col add_bottom_col2">
               <span>Категория</span>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
+                <option key={0} value={0}>
+                  Выберите категорию
+                </option>
                 {categories.map((item, key) => (
                   <option key={key} value={item.id}>
                     {item.name}
@@ -214,6 +284,46 @@ export default function Addpage() {
           </div>
         </div>
       </form>
+      {modal ? (
+        <div className="modal_bg">
+          <div className="modal_box">
+            <div className="modal_header">
+              <h2>PLAN </h2>
+              <button className="modal_close" onClick={() => setModal("")}>
+                <MdClose />
+              </button>
+            </div>
+            <div className="modal_body">
+              <div className="modal_plan">
+                {plans.map((p) => (
+                  <div
+                    key={p.id}
+                    className={`modal_plan-card ${
+                      selectedPlan === p.id ? "selected" : ""
+                    }`}
+                    onClick={() => handleSelect(p.id)}
+                  >
+                    {p.name}
+                    <div className="modal_price">
+                      {p.amount} <MdOutlineCurrencyRuble />{" "}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p>
+                Siz bizni tariflarimiz bilan mahsulotingizni yanada tez sotishiz
+                mumkin.
+              </p>
+            </div>
+            <div className="modal_btn">
+              <button className="btn" onClick={() => Plane()}>
+                Сохранить
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      <ToastContainer />
     </div>
   );
 }
