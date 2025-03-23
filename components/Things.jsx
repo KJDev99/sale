@@ -4,6 +4,7 @@ import Image from "next/image";
 import { api } from "../app/Host/host";
 import axios from "axios";
 import Link from "next/link";
+import Loader from "./Loader";
 
 export default function Things() {
   const [data, setData] = useState([]);
@@ -31,6 +32,10 @@ export default function Things() {
     }
   };
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div className="things">
       <div className="things_left">
@@ -55,17 +60,26 @@ export default function Things() {
 
       {/* O'ng panel qismi (xizmatlar, reklamalar) */}
       <div className="advertise things_adv">
-<div className="right_col advertise_col">
-            <img src="/main2.jpg" alt="Katalog rasmi" style={{ width: "100%", height: "auto" }} />
-            <img src="/main3.jpg" alt="Katalog rasmi" style={{ width: "100%", height: "auto" }} />
-            <img src="/luxury.jpg" alt="Katalog rasmi" style={{ width: "100%", height: "auto" }} />
-            <div className="right_text  advertise_col_text">
-              <h2>
-              Здесь вы можете разместить свою рекламу. Купить и продать</h2>
-            </div>
+        <div className="right_col advertise_col">
+          <img
+            src="/main2.jpg"
+            alt="Katalog rasmi"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <img
+            src="/main3.jpg"
+            alt="Katalog rasmi"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <img
+            src="/luxury.jpg"
+            alt="Katalog rasmi"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <div className="right_text  advertise_col_text">
+            <h2>Здесь вы можете разместить свою рекламу. Купить и продать</h2>
           </div>
-
-       
+        </div>
       </div>
     </div>
   );
