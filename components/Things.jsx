@@ -41,14 +41,19 @@ export default function Things() {
       <div className="things_left">
         <h1 className="all">Все категории</h1>
         <div className="things_row">
-          {loading ? (
-            <div>Loading categories...</div>
-          ) : data.length > 0 ? (
+          {data.length > 0 ? (
             data.map((item, index) => (
               <div key={index} className="things_col">
-                {/* Kategoriya linki to'g'ri bo'lishi uchun URL to'g'ri formatda berildi */}
-                <Link href={`/category/${item.id}`} className="things_card">
-                  <h1>{item.name}</h1>
+                <Link
+                  href={`/category/${item.id}`}
+                  className="things_card"
+                  style={{ backgroundImage: `url(${api}${item.image})` }}
+                >
+                  <div className="name-overlay">
+                    <h1 className="text-white text-lg font-bold">
+                      {item.name}
+                    </h1>
+                  </div>
                 </Link>
               </div>
             ))
@@ -58,7 +63,6 @@ export default function Things() {
         </div>
       </div>
 
-      {/* O'ng panel qismi (xizmatlar, reklamalar) */}
       <div className="advertise things_adv">
         <div className="right_col advertise_col">
           <img
