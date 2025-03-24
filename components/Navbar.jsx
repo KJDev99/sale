@@ -10,9 +10,9 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar_row">
-        <div className="navbar_logo">
+        <Link href={"/"} className="navbar_logo">
           <img src="/logo2.png" />
-        </div>
+        </Link>
         <div className="navbar_col2">
           <ul>
             <Link href="/add" className="link">
