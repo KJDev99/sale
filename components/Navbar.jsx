@@ -11,7 +11,7 @@ export default function Navbar() {
     <div className="navbar">
       <div className="navbar_row">
         <Link href={"/"} className="navbar_logo">
-          <img src="/logo2.png" />
+          <img src="/logo.svg" />
         </Link>
         <div className="navbar_col2">
           <ul>

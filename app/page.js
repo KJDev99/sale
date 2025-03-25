@@ -7,9 +7,7 @@ import Market from "../components/Market";
 import About from "../components/About";
 import News from "./news/page";
 import Search from "../components/Search";
-
-
-
+import Galary from "../components/Galary";
 
 export default function Home() {
   return (
@@ -17,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Kategory />
       <Things />
+      <Galary />
       <Market />
       <About />
     </div>
