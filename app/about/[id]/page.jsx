@@ -4,7 +4,7 @@ import Navbar from "../../../components/Navbar";
 import { Carousel, Image, message, Modal } from "antd";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import axios from "axios";
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from "next/navigation";
 import { api } from "../../Host/host";
 import Comments from "../../comments/Comments";
 import Addcom from "../../Addcomment/Addcom";
@@ -12,6 +12,7 @@ import { FaRegStar, FaStar } from "react-icons/fa6";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Send, UserPen } from "lucide-react";
+import AdvertiseBanner from "../../../components/AdvertiseBanner";
 
 export default function page() {
   const [data, setData] = useState();
@@ -19,8 +20,8 @@ export default function page() {
   const [comment, setcomment] = useState("");
   const [isModalOpen, setisModalOpen] = useState(false);
 
-   const route =useRouter()
-const token = localStorage.getItem("token");
+  const route = useRouter();
+  const token = localStorage.getItem("token");
 
   const pathname = usePathname();
 
@@ -28,16 +29,11 @@ const token = localStorage.getItem("token");
 
   const id = pathname.split("/")[2]; // `&` bo‘yicha bo‘lish
 
-
- 
-
-
-
   const sendChats = async () => {
     try {
       // Set loading state if applicable
       // setLoading(true);
-  
+
       const response = await axios({
         url: `${api}/blog/chats/create/`,
         method: "POST",
@@ -49,7 +45,7 @@ const token = localStorage.getItem("token");
           announcement_id: id, // ID of the announcement
         },
       });
-  
+
       console.log(response);
       if (response.data) {
         toast.success("Chat created successfully!");
@@ -69,9 +65,6 @@ const token = localStorage.getItem("token");
       // setLoading(false);
     }
   };
-
-
-
 
   const getData = async () => {
     try {
@@ -137,7 +130,7 @@ const token = localStorage.getItem("token");
       theme: "light",
     });
   };
-  
+
   const handleCancel = () => {
     setisModalOpen(false);
     setrate(0);
@@ -147,8 +140,6 @@ const token = localStorage.getItem("token");
     getData();
   }, [id]);
 
-
-
   return (
     <div className="info">
       <Navbar />
@@ -157,65 +148,93 @@ const token = localStorage.getItem("token");
           <div className="info_ri">
             <h1>{data?.title}</h1>
             <div className="carousel">
-           <Carousel  arrows infinite={false}>
-      <div >
-      <h3 className="contentStyle"><img
-                    src={data.images.length>0?data.images[0].image:'/car.png'}
-                    alt={data.title || "Product image"}
-                    style={{
-                      width: "auto",
-                      height: "100%",
-                      borderRadius: "15px",
-                      position:'center',
-                      flexWrap:"nowrap",
-                      display:"flex",
-                      justifyContent:"center"
-                    }}/></h3>
-      </div>
-      <div>
-        <h3 className="contentStyle"><img
-                    src={data.images.length>0?data.images[0].image:'/car.png'}
-                    alt={data.title || "Product image"}
-                    style={{
-                      width: "auto",
-                      height: "100%",
-                      borderRadius: "15px",
-                      position:'center',
-                      flexWrap:"nowrap",
-                      display:"flex",
-                      justifyContent:"center"
-                    }}/></h3>
-      </div>
-      <div>
-        <h3 className="contentStyle"><img
-                    src={data.images.length>0?data.images[0].image:'/car.png'}
-                    alt={data.title || "Product image"}
-                    style={{
-                      width: "auto",
-                      height: "100%",
-                      borderRadius: "15px",
-                      position:'center',
-                      flexWrap:"nowrap",
-                      display:"flex",
-                      justifyContent:"center"
-                    }}/></h3>
-      </div>
-      <div>
-        <h3 className="contentStyle"><img
-                    src={data.images.length>0?data.images[0].image:'/car.png'}
-                    alt={data.title || "Product image"}
-                    style={{
-                      width: "auto",
-                      height: "100%",
-                      borderRadius: "15px",
-                      position:'center',
-                      flexWrap:"nowrap",
-                      display:"flex",
-                      justifyContent:"center"
-                    }}/></h3>
-      </div>
-    </Carousel>
-    </div>
+              <Carousel arrows infinite={false}>
+                <div>
+                  <h3 className="contentStyle">
+                    <img
+                      src={
+                        data.images.length > 0
+                          ? data.images[0].image
+                          : "/car.png"
+                      }
+                      alt={data.title || "Product image"}
+                      style={{
+                        width: "auto",
+                        height: "100%",
+                        borderRadius: "15px",
+                        position: "center",
+                        flexWrap: "nowrap",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="contentStyle">
+                    <img
+                      src={
+                        data.images.length > 0
+                          ? data.images[0].image
+                          : "/car.png"
+                      }
+                      alt={data.title || "Product image"}
+                      style={{
+                        width: "auto",
+                        height: "100%",
+                        borderRadius: "15px",
+                        position: "center",
+                        flexWrap: "nowrap",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="contentStyle">
+                    <img
+                      src={
+                        data.images.length > 0
+                          ? data.images[0].image
+                          : "/car.png"
+                      }
+                      alt={data.title || "Product image"}
+                      style={{
+                        width: "auto",
+                        height: "100%",
+                        borderRadius: "15px",
+                        position: "center",
+                        flexWrap: "nowrap",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="contentStyle">
+                    <img
+                      src={
+                        data.images.length > 0
+                          ? data.images[0].image
+                          : "/car.png"
+                      }
+                      alt={data.title || "Product image"}
+                      style={{
+                        width: "auto",
+                        height: "100%",
+                        borderRadius: "15px",
+                        position: "center",
+                        flexWrap: "nowrap",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    />
+                  </h3>
+                </div>
+              </Carousel>
+            </div>
             <div className="info_row">
               <div className="info_col">
                 <p>
@@ -273,14 +292,18 @@ const token = localStorage.getItem("token");
               Добавить комментарий
             </button>
             <div className="chat_box">
-        <div className="chat_box_text">
-          <div className="chat_icon">
-            <p><UserPen/></p>
-          <p><Send/></p>
-          </div>
-          <button onClick={sendChats}>Chatga otish</button>
-          </div>
-        </div>
+              <div className="chat_box_text">
+                <div className="chat_icon">
+                  <p>
+                    <UserPen />
+                  </p>
+                  <p>
+                    <Send />
+                  </p>
+                </div>
+                <button onClick={sendChats}>Chatga otish</button>
+              </div>
+            </div>
           </div>
         )}
 
@@ -353,32 +376,12 @@ const token = localStorage.getItem("token");
             ></textarea>
           </div>
         </Modal>
-      
-<div className="advertise">
-<div className="right_col advertise_col">
-            <img src="/main2.jpg" alt="Katalog rasmi" style={{ width: "100%", height: "auto" }} />
-            <img src="/main3.jpg" alt="Katalog rasmi" style={{ width: "100%", height: "auto" }} />
-            <img src="/luxury.jpg" alt="Katalog rasmi" style={{ width: "100%", height: "auto" }} />
-            <div className="right_text  advertise_col_text">
-              <h2>
-              Здесь вы можете разместить свою рекламу. Купить и продать</h2>
-            </div>
-          </div>
-</div>
 
-      
-
-        {/* <div className="things_right info_left">
-          <h1>Добавить комментарий</h1>
-          <div className="right_col2">
-          <div className="com_add">
-           <Addcom/>
-            </div>
-          </div>
-        </div> */}
+        <div className="advertise">
+          <AdvertiseBanner />
+        </div>
       </div>
       <ToastContainer />
-
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import { Heart, ShoppingCart, ShoppingCartIcon } from "lucide-react"; // Agar bu icon'lar ishlatilsa
+import Image from "next/image";
 import Link from "next/link";
 import { BsPersonBoundingBox } from "react-icons/bs";
 import { LuLogIn } from "react-icons/lu";
@@ -26,7 +27,7 @@ export default function Navbar() {
             </Link>
             <div className="icons">
               <Link href={"/save"} className="icon">
-                <SlBasket />
+                <Image src="heart.svg" alt="like" height={24} width={24} />
               </Link>
             </div>
             <Link href="/login" className="btn">

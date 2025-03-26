@@ -1,126 +1,112 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { Heart, Trash2 } from "lucide-react";
 import { api } from "../Host/host";
-import Cookies from "js-cookie";
 import Loader from "../../components/Loader";
 import Navbar from "../../components/Navbar";
+import { toast } from "react-toastify";
 
 export default function CardPanel() {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [imageError, setImageError] = useState({});
-  const [delate, setdelate] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      getFavorites();
-    }
+    fetchFavorites();
   }, []);
 
-  const getFavorites = async () => {
+  const fetchFavorites = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+
     try {
-      const response = await axios({
-        url: "https://mirzohidjon.pythonanywhere.com/blog/favorites/",
-        headers: {
-          Authorization: `Token ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.get(
+        "https://mirzohidjon.pythonanywhere.com/blog/favorites/",
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
       setFavorites(response.data);
-      console.log(response.data);
     } catch (err) {
-      console.log(err);
+      console.error("Error fetching favorites:", err);
+      toast.error("Failed to load favorites");
     } finally {
       setLoading(false);
     }
   };
 
-  const deleteFavorites = async (id) => {
-    console.log(id, "delete");
+  const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      return;
-    }
+    if (!token) return;
+
+    setDeletingId(id);
     try {
-      if (!token) {
-        console.error("No authentication token found");
-        return { success: false, error: "Authentication required" };
-      }
-      const response = await axios.delete(`${api}/blog/favorites/${id}/`, {
+      await axios.delete(`${api}/blog/favorites/${id}/`, {
         headers: {
           Authorization: `Token ${token}`,
         },
       });
-
-      return { success: true };
+      setFavorites(favorites.filter((item) => item.id !== id));
+      toast.success("Removed from favorites");
     } catch (err) {
       console.error("Delete failed:", err);
-
-      if (err.response) {
-        console.log("Response status:", err.response.status);
-        console.log("Response data:", err.response.data);
-
-        return {
-          success: false,
-          status: err.response.status,
-          error: err.response.data || "Server error",
-        };
-      }
-
-      return { success: false, error: "Failed to delete favorite" };
+      toast.error("Failed to remove favorite");
+    } finally {
+      setDeletingId(null);
     }
   };
 
   if (loading) {
     return <Loader />;
   }
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const hours = String(date.getUTCHours()).padStart(2, "0");
-    const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-    const day = String(date.getUTCDate()).padStart(2, "0");
-    const month = String(date.getUTCMonth() + 1).padStart(2, "0"); // Oy 0 dan boshlanadi
-    const year = date.getUTCFullYear();
-
-    return `${hours}:${minutes} ${day}/${month}/${year}`;
-  };
 
   return (
     <>
       <Navbar />
       <div className="card-panel">
         <h1 className="card-panel-title">
-          {" "}
-          <span>Ваши</span> Избранные
+          <span>Your</span> Favorites
         </h1>
+
         {favorites.length === 0 ? (
           <div className="empty-favorites">
             <p>You don't have any favorite ads yet.</p>
-            <Link href="/market" className="browse-link">
-              Browse Ads
+            <Link href="/" className="browse-link">
+              Bosh Sahifa
             </Link>
           </div>
         ) : (
-          <div className="card_row">
-            <div className="favorites-grid">
-              {favorites.map((favorite) => (
-                <div key={favorite.id} className="favorite-item">
-                  <h1>{favorite.announcement}</h1>
-                  <p>{favorite.announcement_title}</p>
-                  <span>{formatDate(favorite.created_at)}</span>
-                  <button
-                    onClick={() => deleteFavorites(favorite.id)}
-                    className="remove-favorite"
-                  >
+          <div className="favorites-grid">
+            {favorites.map((favorite) => (
+              <div key={favorite.id} className="favorite-item">
+                <Link
+                  href={`/about/${favorite.announcement}`}
+                  className="favorite-content"
+                >
+                  <img src={favorite.announcement_images[0].image} alt="" />
+                  <h2>{favorite.announcement_title}</h2>
+                </Link>
+                <button
+                  onClick={() => handleDelete(favorite.id)}
+                  className="remove-favorite"
+                  disabled={deletingId === favorite.id}
+                  aria-label="Remove from favorites"
+                >
+                  {deletingId === favorite.id ? (
+                    <Loader size={20} />
+                  ) : (
                     <Trash2 size={20} />
-                  </button>
-                </div>
-              ))}
-            </div>
+                  )}
+                </button>
+              </div>
+            ))}
           </div>
         )}
       </div>

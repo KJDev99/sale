@@ -115,6 +115,8 @@ img {
 .things_left {
   width: 70%;
   margin-right: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .all {
   font-size: 30px;
@@ -140,6 +142,7 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
+  flex-grow: 1;
 }
 .things_card {
   display: flex;
@@ -1083,7 +1086,16 @@ img {
   overflow-y: auto;
   padding: 50px;
 }
-
+.empty-favorites {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.browse-link {
+  color: #007bff;
+  text-decoration: none;
+}
 .favorites {
   position: absolute;
   top: 15px;
@@ -1092,7 +1104,7 @@ img {
 .favorites-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .favorite-item {
   padding: 15px;
@@ -1139,6 +1151,7 @@ img {
   border: none;
   color: red;
   background-color: transparent;
+  cursor: pointer;
 }
 .active_like {
   color: red;
@@ -1371,10 +1384,10 @@ img {
     padding: 60px 0px;
   }
   .login_log2 {
-    height: 40vh !important;
+    /* height: 40vh !important; */
   }
   .login_form {
-    margin-top: 100px;
+    margin-top: 30px;
     width: 50%;
     padding: 15px;
   }
@@ -1419,6 +1432,11 @@ img {
   .add_top .btn {
     border-radius: 10px;
     font-size: 16px !important;
+  }
+  .css-dev-only-do-not-override-240cud,
+  .css-240cud {
+    width: 320px;
+    margin: auto;
   }
   .navbar {
     padding: 15px 20px;
@@ -1468,6 +1486,8 @@ img {
   }
   .market-title {
     font-size: 20px;
+    width: 100%;
+    padding: 8px 10px;
   }
   .all {
     font-size: 20px;
@@ -1898,6 +1918,7 @@ img {
   gap: 16px;
   overflow-x: auto;
   scrollbar-width: none;
+  margin-top: 20px;
 }
 
 .scroll-container-g::-webkit-scrollbar {
@@ -1910,18 +1931,29 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid #ccc;
-  padding: 2px;
 }
-
+.item-g span {
+  font-size: 14px;
+}
 .item-g img {
+  padding: 2px;
+  border: 2px solid #ccc;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   cursor: pointer;
 }
-.arrow_icon.item-g {
+.arrow_icon.item-g img {
   border: none;
+}
+@media (max-width: 768px) {
+  .item-g img {
+    width: 60px;
+    height: 60px;
+  }
+  .item-g span {
+    font-size: 10px;
+  }
 }
 .modal-g {
   position: fixed;
@@ -1975,5 +2007,131 @@ img {
   }
   to {
     transform: scale(1);
+  }
+}
+
+/* Advertise Banner Styles */
+
+.advertise-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+.advertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.advertise-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advertise-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.advertise-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.advertise-card:hover .advertise-image {
+  transform: scale(1.05);
+}
+
+.advertise-content {
+  padding: 1.25rem;
+}
+
+.advertise-item-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.advertise-description {
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.advertise-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.advertise-price {
+  font-weight: bold;
+  color: #27ae60;
+  font-size: 1.1rem;
+}
+
+.advertise-contact,
+.advertise-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #34495e;
+  font-size: 0.9rem;
+}
+
+.advertise-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.advertise-link:hover {
+  background-color: #2980b9;
+}
+
+/* Loading and error states */
+.advertise-loading,
+.advertise-error,
+.advertise-empty {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.advertise-error {
+  color: #e74c3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .advertise-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .advertise-title {
+    font-size: 1.5rem;
+  }
+
+  .advertise-grid {
+    grid-template-columns: 1fr;
   }
 }

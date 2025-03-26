@@ -5,6 +5,8 @@ import { api } from "../app/Host/host";
 import axios from "axios";
 import Link from "next/link";
 import Loader from "./Loader";
+import Galary from "./Galary";
+import AdvertiseBanner from "./AdvertiseBanner";
 
 export default function Things() {
   const [data, setData] = useState([]);
@@ -61,29 +63,11 @@ export default function Things() {
             <div>No categories found</div>
           )}
         </div>
+        <Galary />
       </div>
 
       <div className="advertise things_adv">
-        <div className="right_col advertise_col">
-          <img
-            src="/main2.jpg"
-            alt="Katalog rasmi"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <img
-            src="/main3.jpg"
-            alt="Katalog rasmi"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <img
-            src="/luxury.jpg"
-            alt="Katalog rasmi"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <div className="right_text  advertise_col_text">
-            <h2>Здесь вы можете разместить свою рекламу. Купить и продать</h2>
-          </div>
-        </div>
+        <AdvertiseBanner />
       </div>
     </div>
   );

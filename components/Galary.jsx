@@ -42,10 +42,12 @@ export default function Galary() {
               src={`https://mirzohidjon.pythonanywhere.com/${item.image}`}
               alt={item.title}
             />
+            {item?.title && <span className="">{item.title}</span>}
           </div>
         ))}
         <div className="item-g arrow_icon">
           <img src={"/arrowicon.svg"} alt="arrow" />
+          <span className="">{""}</span>
         </div>
       </div>
 

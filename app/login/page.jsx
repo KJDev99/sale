@@ -6,8 +6,7 @@ import { api } from "../Host/host";
 import cookies from "js-cookie";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
-import { useStore } from "../Store/Store"; // Import our Zustand store
-import Navbar from "../../components/Navbar";
+import { useStore } from "../Store/Store";
 import { toast, ToastContainer } from "react-toastify";
 import Loader from "../../components/Loader";
 

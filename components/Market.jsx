@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // Added missing axios import
+import axios from "axios";
 import { api } from "../app/Host/host";
 import { getToken } from "../app/Host/Auth";
 import cookies from "js-cookie";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
+
 export default function Market() {
   const [reklamalar, setReklamalar] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -15,8 +16,9 @@ export default function Market() {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    setToken(localStorage.getItem("token"));
-    getFavorites(token);
+    const token = localStorage.getItem("token");
+    setToken(token);
+
     const fetchReklamalar = async () => {
       try {
         const res = await fetch(`${api}/blog/announcements/`);
@@ -27,8 +29,27 @@ export default function Market() {
       }
     };
 
+    const fetchFavorites = async () => {
+      if (!token) return;
+
+      try {
+        const response = await axios.get(
+          "https://mirzohidjon.pythonanywhere.com/blog/favorites/",
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+            },
+          }
+        );
+        setFavorites(response.data.map((fav) => fav.announcement));
+      } catch (err) {
+        console.log("Favorites loading error: ", err);
+      }
+    };
+
     fetchReklamalar();
-  }, []);
+    fetchFavorites();
+  }, [token]);
 
   const handleImageError = (id) => {
     setImageError((prev) => ({
@@ -37,55 +58,46 @@ export default function Market() {
     }));
   };
 
-  const getFavorites = async (token) => {
-    if (!token) {
-      return;
-    }
-    try {
-      const response = await axios({
-        url: "https://mirzohidjon.pythonanywhere.com/blog/favorites/",
-        headers: {
-          Authorization: `Token ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
-      setFavorites(response.data);
-      console.log(response.data);
-    } catch (err) {
-      console.log(err);
-    }
+  const isFavorite = (adId) => {
+    return favorites.includes(adId);
   };
 
-  const addToFavorite = async (adId) => {
-    let data = JSON.stringify({
-      announcement: adId,
-    });
+  const toggleFavorite = async (adId) => {
     if (!token) {
-      toast.warn("Itlimos tizimga kiring!");
+      toast.warn("Iltimos tizimga kiring!");
       return;
     }
 
     try {
-      const response = await axios({
-        method: "post",
-        url: "https://mirzohidjon.pythonanywhere.com/blog/favorites/",
-        headers: {
-          Authorization: `Token ${token}`,
-          "Content-Type": "application/json",
-        },
-        data: data,
-      });
-
-      console.log(response);
-
-      getFavorites();
+      if (isFavorite(adId)) {
+        await axios.delete(
+          `https://mirzohidjon.pythonanywhere.com/blog/favorites/${adId}/`,
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+            },
+          }
+        );
+        setFavorites(favorites.filter((id) => id !== adId));
+      } else {
+        await axios.post(
+          "https://mirzohidjon.pythonanywhere.com/blog/favorites/",
+          {
+            announcement: adId,
+          },
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setFavorites([...favorites, adId]);
+      }
     } catch (err) {
       console.log(err);
+      toast.error("Xatolik yuz berdi, qayta urinib ko'ring");
     }
-  };
-
-  const isFavorite = (id) => {
-    return favorites.findIndex((x) => x.announcement == id) != -1;
   };
 
   return (
@@ -110,11 +122,7 @@ export default function Market() {
                   ></div>
                 ) : (
                   <img
-                    src={
-                      reklama.images.length > 0
-                        ? reklama.images[0].image
-                        : "/car.png"
-                    }
+                    src={reklama.images.length > 0 && reklama.images[0].image}
                     alt={reklama.title || "Product image"}
                     style={{
                       borderRadius: "15px 15px 0px 0px",
@@ -140,12 +148,16 @@ export default function Market() {
                   </div>
                   <div className={`favorites`}>
                     <button
-                      onClick={(e) => addToFavorite(reklama.id)}
+                      onClick={(e) => toggleFavorite(reklama.id)}
                       className={
                         isFavorite(reklama.id) ? "active-favorite" : ""
                       }
                     >
-                      {isFavorite(reklama.id) ? <FaHeart /> : <FaRegHeart />}
+                      {isFavorite(reklama.id) ? (
+                        <FaHeart color="red" />
+                      ) : (
+                        <FaRegHeart />
+                      )}
                     </button>
                   </div>
                 </div>
