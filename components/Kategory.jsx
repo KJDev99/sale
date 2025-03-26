@@ -48,7 +48,7 @@ export default function Kategory() {
           <p>{data[0]?.alt_text}</p>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>Загрузка...</p>
       )}
     </div>
   );

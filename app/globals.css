@@ -60,6 +60,8 @@ img {
   border: none;
   border-radius: 8px;
   background-color: #1f56a1;
+  transition: 0.5s;
+  text-transform: uppercase;
 }
 .icon {
   font-size: 25px !important;

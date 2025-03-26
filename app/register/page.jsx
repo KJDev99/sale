@@ -78,7 +78,7 @@ export default function Register() {
 
             <Form.Item label={null}>
               <Button className="login_btn" htmlType="submit">
-                Submit
+                Отправить
               </Button>
             </Form.Item>
           </Form>

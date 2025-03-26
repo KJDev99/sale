@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { api } from "../app/Host/host";
 import { getToken } from "../app/Host/Auth";
-import cookies from "js-cookie";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -64,7 +63,7 @@ export default function Market() {
 
   const toggleFavorite = async (adId) => {
     if (!token) {
-      toast.warn("Iltimos tizimga kiring!");
+      toast.warn("Пожалуйста, войдите в свой аккаунт!");
       return;
     }
 
@@ -96,7 +95,7 @@ export default function Market() {
       }
     } catch (err) {
       console.log(err);
-      toast.error("Xatolik yuz berdi, qayta urinib ko'ring");
+      toast.error("Произошла ошибка, попробуйте снова.");
     }
   };
 

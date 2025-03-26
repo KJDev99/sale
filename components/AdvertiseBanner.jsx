@@ -16,7 +16,7 @@ const AdvertiseBanner = () => {
       );
       setAds(response.data);
     } catch (err) {
-      setError("Failed to load advertisements");
+      setError("Не удалось загрузить объявления.");
       console.error("Error fetching ads:", err);
     } finally {
       setLoading(false);
@@ -27,7 +27,7 @@ const AdvertiseBanner = () => {
   }, []);
 
   if (loading) {
-    return <div className="advertise-loading">Loading advertisements...</div>;
+    return <div className="advertise-loading">Загрузка объявлений...</div>;
   }
 
   if (error) {
@@ -37,7 +37,7 @@ const AdvertiseBanner = () => {
   if (ads.length === 0) {
     return (
       <div className="advertise-empty">
-        No advertisements available at the moment.
+        В данный момент нет доступных объявлений.
       </div>
     );
   }

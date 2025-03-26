@@ -13,7 +13,6 @@ export default function Addcom() {
   const pathname = usePathname();
   const id = pathname;
 
-  // Get the current user from Zustand store
   const currentUser = useStore((state) => state.currentUser);
 
   const sendData = async () => {
@@ -65,7 +64,7 @@ export default function Addcom() {
         />
       </div>
       <div className="addcom_col">
-        <h4>Rating</h4>
+        <h4>Рейтинг</h4>
         <input
           className="rating"
           type="number"

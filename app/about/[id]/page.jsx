@@ -25,15 +25,10 @@ export default function page() {
 
   const pathname = usePathname();
 
-  console.log(pathname);
-
   const id = pathname.split("/")[2]; // `&` bo‘yicha bo‘lish
 
   const sendChats = async () => {
     try {
-      // Set loading state if applicable
-      // setLoading(true);
-
       const response = await axios({
         url: `${api}/blog/chats/create/`,
         method: "POST",
@@ -42,35 +37,30 @@ export default function page() {
           "Content-Type": "application/json",
         },
         data: {
-          announcement_id: id, // ID of the announcement
+          announcement_id: id,
         },
       });
 
-      console.log(response);
       if (response.data) {
-        toast.success("Chat created successfully!");
+        toast.success("Чат успешно создан!");
         route.push(`/chat/${response.data.id}`);
       }
     } catch (err) {
-      console.error("Error creating chat:", err);
       if (err.response) {
-        console.error("Response status:", err.response.status);
-        console.error("Response data:", err.response.data);
-        toast.error(err.response.data?.message || "Failed to create chat");
+        toast.error(err.response.data?.message || "Не удалось создать чат.");
       } else {
-        toast.error("An unexpected error occurred. Please try again.");
+        toast.error(
+          "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз."
+        );
       }
     } finally {
-      // Reset loading state if applicable
-      // setLoading(false);
     }
   };
 
   const getData = async () => {
     try {
       const response = await axios.get(`${api}/blog/announcements/${id}`);
-      setData(response.data); // Fixed: using response instead of res
-      console.log("API Response:", response.data);
+      setData(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -91,7 +81,6 @@ export default function page() {
 
       try {
         const token = localStorage.getItem("token");
-        console.log(token, "token");
 
         const response = await axios({
           url: `${api}/blog/comments/`,
@@ -112,8 +101,6 @@ export default function page() {
         }
       }
     } catch (err) {
-      console.log(err);
-      // Log specific error details to help debug
       if (err.response && err.response.data) {
         console.log("Server error details:", err.response.data);
       }
@@ -238,25 +225,25 @@ export default function page() {
             <div className="info_row">
               <div className="info_col">
                 <p>
-                  Category:{" "}
+                  Категория:{" "}
                   <span>
                     {data?.category?.name || JSON.stringify(data?.category)}
                   </span>
                 </p>
                 <p>
-                  Condition:{" "}
+                  Условие:{" "}
                   <span>
                     {data?.condition?.name || JSON.stringify(data?.condition)}
                   </span>
                 </p>
                 <p>
-                  Location:{" "}
+                  Местоположение:{" "}
                   <span>
                     {data?.location?.name || JSON.stringify(data?.location)}
                   </span>
                 </p>
                 <p>
-                  Status:{" "}
+                  Статус:{" "}
                   <span>
                     {data?.status?.name || JSON.stringify(data?.status)}
                   </span>
@@ -264,18 +251,18 @@ export default function page() {
               </div>
               <div className="info_col2">
                 <p>
-                  Plan: <span>{data?.plan}</span>
+                  План: <span>{data?.plan}</span>
                 </p>
                 <p>
-                  Priority: <span>{data?.priority}</span>
+                  Приоритет: <span>{data?.priority}</span>
                 </p>
                 <p>
-                  Price: <span>{data?.price}</span>
+                  Цена: <span>{data?.price}</span>
                 </p>
               </div>
             </div>
             <div className="info_text">
-              <h2>Description</h2>
+              <h2>Описание</h2>
               <p>{data?.description}</p>
             </div>
             <div></div>
@@ -301,7 +288,7 @@ export default function page() {
                     <Send />
                   </p>
                 </div>
-                <button onClick={sendChats}>Chatga otish</button>
+                <button onClick={sendChats}>Перейти в чат</button>
               </div>
             </div>
           </div>

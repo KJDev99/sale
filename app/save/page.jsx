@@ -36,7 +36,7 @@ export default function CardPanel() {
       setFavorites(response.data);
     } catch (err) {
       console.error("Error fetching favorites:", err);
-      toast.error("Failed to load favorites");
+      toast.error("Не удалось загрузить избранное.");
     } finally {
       setLoading(false);
     }
@@ -54,10 +54,10 @@ export default function CardPanel() {
         },
       });
       setFavorites(favorites.filter((item) => item.id !== id));
-      toast.success("Removed from favorites");
+      toast.success("Удалено из избранного.");
     } catch (err) {
       console.error("Delete failed:", err);
-      toast.error("Failed to remove favorite");
+      toast.error("Не удалось удалить из избранного.");
     } finally {
       setDeletingId(null);
     }
@@ -72,14 +72,14 @@ export default function CardPanel() {
       <Navbar />
       <div className="card-panel">
         <h1 className="card-panel-title">
-          <span>Your</span> Favorites
+          <span>Ваш </span> Избранное
         </h1>
 
         {favorites.length === 0 ? (
           <div className="empty-favorites">
-            <p>You don't have any favorite ads yet.</p>
+            <p>У вас еще нет избранных объявлений.</p>
             <Link href="/" className="browse-link">
-              Bosh Sahifa
+              Главная страница
             </Link>
           </div>
         ) : (

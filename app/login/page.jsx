@@ -25,7 +25,7 @@ export default function Login() {
 
   const onFinish = async (val) => {
     if (!val.email || !val.password) {
-      toast.error("Email va parolni kiriting!");
+      toast.error("Введите email и пароль.!");
       return;
     }
 
@@ -44,11 +44,11 @@ export default function Login() {
         ...data.user, // Assuming API returns user object
       });
 
-      toast.success("Tizimga muvaffaqiyatli kirdingiz!");
+      toast.success("Вы успешно вошли в систему.!");
       router.push("/");
     } catch (err) {
       console.log(err);
-      toast.error(err.message || "Login amalga oshmadi!");
+      toast.error(err.message || "Вход не выполнен.!");
     } finally {
       setLoading(false);
     }
@@ -72,7 +72,10 @@ export default function Login() {
               label="Електронная почта"
               name="email"
               rules={[
-                { type: "email", message: "Iltimos, to'g'ri email kiriting!" },
+                {
+                  type: "email",
+                  message: "Пожалуйста, введите правильный email.!",
+                },
                 {
                   required: true,
                   message: "Вы должны ввести адрес электронной почты!",

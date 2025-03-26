@@ -16,7 +16,6 @@ export default function Page() {
   const getData = async () => {
     try {
       const res = await axios.get(`${api}/blog/news/`);
-      console.log(res.data);
 
       setData(res.data);
     } catch (err) {

@@ -60,7 +60,7 @@ export default function Things() {
               </div>
             ))
           ) : (
-            <div>No categories found</div>
+            <div>Категории не найдены.</div>
           )}
         </div>
         <Galary />

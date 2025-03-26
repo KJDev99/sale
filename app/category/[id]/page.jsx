@@ -39,7 +39,7 @@ export default function CategoryPage() {
   }
 
   if (!data) {
-    return <p>No data available.</p>;
+    return <p>Данные отсутствуют.</p>;
   }
 
   return (
@@ -66,21 +66,22 @@ export default function CategoryPage() {
                 <p>{announcement.description}</p>
                 <div className="announcement-details">
                   <p>
-                    <FaTag /> <strong>Price:</strong> ${announcement.price}
+                    <FaTag /> <strong>Цена:</strong> ${announcement.price}
                   </p>
                   <p>
-                    <FaMapMarkerAlt /> <strong>Location:</strong>{" "}
+                    <FaMapMarkerAlt /> <strong>Местоположение:</strong>{" "}
                     {announcement.location}
                   </p>
                   <p>
-                    <FaUser /> <strong>User:</strong> {announcement.user}
+                    <FaUser /> <strong>Пользователь:</strong>{" "}
+                    {announcement.user}
                   </p>
                 </div>
               </Link>
             </div>
           ))
         ) : (
-          <p>No announcements available.</p>
+          <p>Объявлений нет..</p>
         )}
       </div>
     </div>
